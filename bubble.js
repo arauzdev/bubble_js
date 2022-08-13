@@ -17,7 +17,6 @@ function bubbleSort( arr, n) {
       //generr estado, swap_v puede ser null
       state_factory(j,swap_v,c,arr)
       add_step_scrollbox(c,arr);
-
       c++;
     }
   }

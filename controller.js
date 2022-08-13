@@ -7,7 +7,7 @@ class num_slot {
 }
 //start new example
 function new_set() {
-  v_nums = Array.from({length: 5}, () => Math.floor(Math.random() * 9));
+  v_nums = Array.from({length: glob_vlen}, () => Math.floor(Math.random() * 9));
   v_states = [];
   len_states = 0;
   index_states = 0;
@@ -15,9 +15,12 @@ function new_set() {
 
 /***read all states****/
 function read_all_states() {
+
+  //read all or redraw GUI
   if (index_states != len_states - 1) {
+
+    //change the statye of all buttons
     let curr_state = v_states[index_states];
-    
     if( index_states < len_states) {
       curr_state.forEach((slot) => {
         change_state(v_btns[slot.num],slot.state,slot.alg_swap)
@@ -25,10 +28,10 @@ function read_all_states() {
       index_states++;
     }
   }
-  else {
+  else { //sort new array
     new_set();
     fill_gui();
-    bubbleSort(v_nums,5);
+    bubbleSort(v_nums,glob_vlen);
   }
 }
 
@@ -39,7 +42,7 @@ function make_state_vector (p_btnA,p_btnB,state,swap_tup = [null,null]) {
   //a cada elemento del arreglo del estado del algoritmo
   //btnA y btnB son ls posiciones numericas en btn
   //invertir aunque los datos sean nulos
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < glob_vlen; i++) {
     if( i == p_btnA ) {
       temp_v.push(new num_slot(i,state,swap_tup[0]));
     }

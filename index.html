@@ -1,27 +1,31 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
-  </head>
-  <body>
-    <div class = "center">
-      <h1> Bubble Sort</h1>
-    <div id = "main_div" class = "center"></div>
-    <p id ="orig_v" class = "orig_v"></p>
-    <textarea class="scrollabletextbox" id="scrollbox_pasos_agoritmo"></textarea>
-  </div>
     <script type="text/javascript" src="bubble.js"></script>
     <script type="text/javascript" src="controller.js"></script>
-    <script type="text/javascript" src="view.js"></script>
+    <script type="text/javascript" src="view.js"></script>  
+  </head>
+  <body>
+    <!---main_div-->
+    <div class = "center">
+      <h1> Bubble Sort</h1>
+      <div id = "main_div" class = "center"></div>
+      <p id ="orig_v" class = "orig_v"></p>
+      <textarea class="scrollabletextbox" id="scrollbox_pasos_agoritmo"></textarea>
+    </div>
+
     <script>
       //generar arreglo de randoms
-      let v_nums = Array.from({length: 5}, () => Math.floor(Math.random() * 9));
+      var glob_vlen = 7;
+
+      let v_nums = Array.from({length: glob_vlen}, () => Math.floor(Math.random() * 9));
       let v_states = [];
       var len_states = 0;
       var index_states = 0;
       let v_btns = [];
       make_btns();
       fill_gui();
-      bubbleSort(v_nums,5);
+      bubbleSort(v_nums,glob_vlen);
       var intervalID = window.setInterval(read_all_states, 500);
     </script>
   </body>
